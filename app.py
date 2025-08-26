@@ -362,6 +362,7 @@ with tab_customer:
     # calculate days since last transaction
     current_date = df_filtered['order_date'].max() + timedelta(days=1)
     df_recency['recency'] = (current_date - df_recency['last_transaction']).dt.days
+    df_recency.dropna(subset=['recency'])
 
     # Assign R score based on percentile
     df_recency['r_score'] = pd.qcut(df_recency['recency'], 5, labels = [5,4,3,2,1])
@@ -369,13 +370,15 @@ with tab_customer:
     # Make a new dataframe with customer id, customer name, and frequency
     df_frequency = pd.DataFrame(df_filtered.groupby(['customer_id', 'customer_name'])['order_id'].nunique().sort_values(ascending=False).reset_index())
     df_frequency.rename(columns = {'order_id':'frequency'}, inplace=True)
+    df_frequency.dropna(subset=['frequency'])
 
     # Assign F score based on percentile
     df_frequency['f_score'] = pd.qcut(df_frequency['frequency'], 5, labels = [1,2,3,4,5])
 
     # Make a new dataframe with customer id, customer name, and monetary
     df_monetary = pd.DataFrame(df_filtered.groupby(['customer_id', 'customer_name'])['sales'].sum().sort_values(ascending=False).reset_index())
-
+    df_monetary.dropna(subset=['monetary'])
+    
     # Assign M score based on percentile
     df_monetary['m_score'] = pd.qcut(df_monetary['sales'], 5, labels = [1,2,3,4,5])
     
