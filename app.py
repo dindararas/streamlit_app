@@ -377,7 +377,7 @@ with tab_customer:
 
     # Make a new dataframe with customer id, customer name, and monetary
     df_monetary = pd.DataFrame(df_filtered.groupby(['customer_id', 'customer_name'])['sales'].sum().sort_values(ascending=False).reset_index())
-    df_monetary.dropna(subset=['monetary'])
+    df_monetary.dropna(subset=['sales'])
     
     # Assign M score based on percentile
     df_monetary['m_score'] = pd.qcut(df_monetary['sales'], 5, labels = [1,2,3,4,5])
