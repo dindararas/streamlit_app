@@ -31,4 +31,13 @@ Superstore dataset can be found on [Kaggle](https://www.kaggle.com/datasets/vive
 ## 🖥 Streamlit App
 You can check the streamlit [here](https://superstore-viz.streamlit.app/)
 
+## 💹 Dashboard Overview
+This dashboard has 3 pages : sales analysis, product analysis, and customer analysis.
+**1. Sales Analysis**
+Conduct an analysis to identify sales performance over given time period across all the US states. This analysis is similar to this Tableau dashboard : [Tableau](https://public.tableau.com/app/profile/dinda.raraswati/viz/SuperstoreSalesDashboard_17499792202250/Dashboard1)
+**2. Product Analysis**
+Conduct an analysis to identify top performing products, and how sales and profit are associated each other
+**3. Customer Analysis**
+Conduct RFM analysis for customer segmentation. This analysis is based on the previous project about customer segmentation using RFM analysis. You can find the deck presentation : [deck presentation](https://docs.google.com/presentation/d/1ElsUqBNdeptksL12VPo_ZNioSdLFaSfoBaSlgAf-hP4/edit)
+
  
