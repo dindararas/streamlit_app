@@ -18,7 +18,7 @@ st.set_page_config(
 # Function to load dataset
 @st.cache_data
 def load_data() :
-    return pd.read_csv('Dataset\superstore.csv')
+    return pd.read_csv('Dataset/superstore.csv')
 
 # Load Dataset
 df = load_data()
