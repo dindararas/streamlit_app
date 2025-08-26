@@ -373,7 +373,8 @@ with tab_customer:
     df_frequency.dropna(subset=['frequency'])
 
     # Assign F score based on percentile
-    df_frequency['f_score'] = pd.qcut(df_frequency['frequency'], 5, labels = [1,2,3,4,5])
+    df_frequency['f_score'] = pd.qcut(df_frequency['frequency'].rank(method='first'), 5, labels=[1,2,3,4,5])
+        
 
     # Make a new dataframe with customer id, customer name, and monetary
     df_monetary = pd.DataFrame(df_filtered.groupby(['customer_id', 'customer_name'])['sales'].sum().sort_values(ascending=False).reset_index())
