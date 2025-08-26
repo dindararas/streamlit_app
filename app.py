@@ -89,7 +89,7 @@ with tab_sales :
     st.header('Sales Performance Analysis')
 
     # KPI metrics
-    st.subheader('KPI Metrics')
+    st.subheader('Key Performance Indicators')
 
     # create columns
     col1, col2, col3, col4 = st.columns([3,3,3,3])
